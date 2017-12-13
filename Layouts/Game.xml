@@ -844,7 +844,6 @@
                     </properties>
                     <instance-variables>
                         <Hp>90</Hp>
-                        <Target>0</Target>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="8Direction">
@@ -882,7 +881,7 @@
                         </behavior-instance>
                         <behavior-instance type="LineOfSight_Down">
                             <properties>
-                                <obstacles>Custom</obstacles>
+                                <obstacles>Solids</obstacles>
                                 <range>1500</range>
                                 <cone-of-view>-20</cone-of-view>
                                 <use-collision-cells>Yes</use-collision-cells>
