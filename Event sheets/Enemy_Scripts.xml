@@ -307,7 +307,58 @@
         <event-group description="" sid="666893790873501" title="Enemy 2">
             <sub-events>
                 <variable constant="0" name="RateOfFire" sid="184267385068327" static="0" type="number">0.2</variable>
-                <event-block sid="226236074043955">
+                <event-group description="" sid="157281058399460" title="Shooting">
+                    <sub-events>
+                        <event-block sid="576251526325593">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="306072858713759" type="System">
+                                    <param id="0" name="Interval (seconds)">RateOfFire</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block any="1" sid="515016435992770">
+                                    <conditions>
+                                        <condition behavior="LineOfSight_Up" id="0" name="Has LOS to object" sid="716515275895414" type="Enemy2">
+                                            <param id="0" name="Object">Player</param>
+                                        </condition>
+                                        <condition behavior="LineOfSight_Down" id="0" name="Has LOS to object" sid="880629906215668" type="Enemy2">
+                                            <param id="0" name="Object">Player</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="511020158490725" type="Enemy2">
+                                            <param id="0" name="Object">EnemyBullet</param>
+                                            <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                                            <param id="2" name="Image point">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="141770730770638">
+                            <conditions>
+                                <condition id="-18" name="On created" sid="594070511349181" type="EnemyBullet" />
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="164608208236227">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="845401741819489" type="EnemyBullet">
+                                            <param id="0" name="Object">Enemy2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="989937753133840" type="EnemyBullet">
+                                            <param id="0" name="Angle">Enemy2.Angle</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block disabled="1" sid="226236074043955">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="625042615451306" type="System">
                             <param id="0" name="Variable">Docked</param>
@@ -317,43 +368,21 @@
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="903584101310847">
+                        <event-block disabled="1" sid="903584101310847">
                             <conditions>
                                 <condition id="-6" name="Every X seconds" sid="231932754773799" type="System">
-                                    <param id="0" name="Interval (seconds)">0.1</param>
+                                    <param id="0" name="Interval (seconds)">0.05</param>
                                 </condition>
                             </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="877901876498688">
-                                    <conditions>
-                                        <condition id="-11" name="For Each" sid="203996814862716" type="System">
-                                            <param id="0" name="Object">Enemy2</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="441806010956928">
-                                            <conditions>
-                                                <condition id="-8" name="Compare two values" sid="612404267149268" type="System">
-                                                    <param id="0" name="First value">distance(Enemy2.X , Enemy2.Y, Player.X , Player.Y)</param>
-                                                    <param id="1" name="Comparison">4</param>
-                                                    <param id="2" name="Second value">0</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action behavior="Pathfinding" id="0" name="Find path" sid="705932769793194" type="Enemy2">
-                                                    <param id="0" name="X">Player.X</param>
-                                                    <param id="1" name="Y">Player.Y</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                            </sub-events>
+                            <actions>
+                                <action behavior="Pathfinding" id="0" name="Find path" sid="705932769793194" type="Enemy2">
+                                    <param id="0" name="X">Player.X</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </action>
+                            </actions>
                         </event-block>
                         <comment></comment>
-                        <event-block sid="979299582571133">
+                        <event-block disabled="1" sid="979299582571133">
                             <conditions>
                                 <condition behavior="Pathfinding" id="1" name="On failed to find path" sid="456058420641068" type="Enemy2" />
                             </conditions>
@@ -364,7 +393,7 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="299513815694544">
+                        <event-block disabled="1" sid="299513815694544">
                             <conditions>
                                 <condition behavior="Pathfinding" id="5" name="On arrived" sid="211245923877528" type="Enemy2" />
                             </conditions>
@@ -376,7 +405,7 @@
                             </actions>
                         </event-block>
                         <comment></comment>
-                        <event-block sid="526456617050271">
+                        <event-block disabled="1" sid="526456617050271">
                             <conditions>
                                 <condition behavior="Pathfinding" id="0" name="On path found" sid="567382453270124" type="Enemy2" />
                             </conditions>
@@ -384,71 +413,90 @@
                                 <action behavior="Pathfinding" id="1" name="Move along path" sid="736405279116358" type="Enemy2" />
                             </actions>
                         </event-block>
-                        <event-group description="" sid="157281058399460" title="Shooting">
-                            <sub-events>
-                                <event-block sid="576251526325593">
-                                    <conditions>
-                                        <condition id="-6" name="Every X seconds" sid="306072858713759" type="System">
-                                            <param id="0" name="Interval (seconds)">RateOfFire</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="515016435992770">
-                                            <conditions>
-                                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="716515275895414" type="Enemy2">
-                                                    <param id="0" name="Object">Player</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="0" name="Spawn another object" sid="511020158490725" type="Enemy2">
-                                                    <param id="0" name="Object">EnemyBullet</param>
-                                                    <param id="1" name="Layer">&quot;Bullets&quot;</param>
-                                                    <param id="2" name="Image point">0</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                                <event-block sid="141770730770638">
-                                    <conditions>
-                                        <condition id="-18" name="On created" sid="594070511349181" type="EnemyBullet" />
-                                    </conditions>
-                                    <actions />
-                                    <sub-events>
-                                        <event-block sid="164608208236227">
-                                            <conditions>
-                                                <condition id="1" name="Is overlapping another object" sid="845401741819489" type="EnemyBullet">
-                                                    <param id="0" name="Object">Enemy2</param>
-                                                </condition>
-                                            </conditions>
-                                            <actions>
-                                                <action id="-8" name="Set angle" sid="989937753133840" type="EnemyBullet">
-                                                    <param id="0" name="Angle">Enemy2.Angle</param>
-                                                </action>
-                                            </actions>
-                                        </event-block>
-                                    </sub-events>
-                                </event-block>
-                            </sub-events>
-                        </event-group>
                     </sub-events>
                 </event-block>
                 <comment></comment>
-                <event-block sid="457257114334050">
+                <event-block sid="414534842651065">
                     <conditions>
-                        <condition id="-14" name="Compare variable" sid="421176973071637" type="System">
-                            <param id="0" name="Variable">Docked</param>
-                            <param id="1" name="Comparison">0</param>
-                            <param id="2" name="Value">1</param>
+                        <condition id="-8" name="Compare two values" sid="984897886582880" type="System">
+                            <param id="0" name="First value">distance(Enemy2.X , Enemy2.Y , Player.X , Player.Y)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">200</param>
                         </condition>
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="100218439249086">
+                        <event-block sid="270449049552882">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="432015727268841" type="Enemy2">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">Player.ImagePointX(5)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="292684052182704" type="Enemy2">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="182578469814355">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="888571448181628" type="Enemy2">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="X co-ordinate">Player.ImagePointX(5)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="242275939176864" type="Enemy2">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="833198318745044">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="165037575319239" type="Enemy2">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Y co-ordinate">Player.ImagePointY(5)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="468260669673441" type="Enemy2">
+                                    <param id="0" name="Control">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="698396372123874">
+                            <conditions>
+                                <condition id="-2" name="Compare Y" sid="553440316549582" type="Enemy2">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Y co-ordinate">Player.ImagePointY(5)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="8Direction" id="7" name="Simulate control" sid="606889296580173" type="Enemy2">
+                                    <param id="0" name="Control">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="514856056564605">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="278887176073203" type="System">
+                            <param id="0" name="First value">distance(Enemy2.X , Enemy2.Y , Player.X , Player.Y)</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">500</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="851700892769583">
                             <conditions />
                             <actions>
-                                <action behavior="Pathfinding" id="2" name="Stop" sid="446927175252211" type="Enemy2" />
+                                <action id="-22" name="Set angle toward position" sid="589921397296493" type="Enemy2">
+                                    <param id="0" name="X">Player.X</param>
+                                    <param id="1" name="Y">Player.Y</param>
+                                </action>
                             </actions>
                         </event-block>
                     </sub-events>
