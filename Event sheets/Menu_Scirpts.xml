@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Menu_Scirpts</name>
+    <events>
+        <variable constant="0" name="Select" sid="958438992299617" static="0" type="number">0</variable>
+        <comment></comment>
+        <event-block sid="782360847297890">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="717270657093840" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="178303535930916" type="Fade">
+                    <param id="0" name="Instance variable">Fade</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <event-block sid="176964439678196">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="266660624505071" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="855389661679198" type="Start_Text">
+                    <param id="0" name="Animation">&quot;Selected&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="710827780249762">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="578226381733725" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="983100972006359" type="Start_Text">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="801162767639655">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="763201825867026" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="832487526159260" type="Options_Text">
+                    <param id="0" name="Animation">&quot;Selected&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="165508575798001">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="112622364347379" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="927232538898490" type="Options_Text">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="586629788069151">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="360200566134334" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="957482373941933" type="Exit_Text">
+                    <param id="0" name="Animation">&quot;Selected&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="157777067254800">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="477429987863671" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="710449078033574" type="Exit_Text">
+                    <param id="0" name="Animation">&quot;Default&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="116987282929836">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="774592600131987" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">2</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="166488588542532" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Value">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="826693990661004">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="585733883469978" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Comparison">4</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="197894335927271" type="System">
+                    <param id="0" name="Variable">Select</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <event-block any="1" sid="844192553322345">
+            <conditions>
+                <condition id="5" name="Compare axis" sid="554190244631980" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Axis">1</param>
+                    <param id="2" name="Comparison">2</param>
+                    <param id="3" name="Value">0</param>
+                </condition>
+                <condition id="3" name="Is button down" sid="504541614538305" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">12</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="782081675296440" type="Keyboard">
+                    <param id="0" name="Key">87 (W)</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="185088411023752" type="Keyboard">
+                    <param id="0" name="Key">38 (Up arrow)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="716562029157602">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="467388228684717" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="731489637862926" type="System">
+                            <param id="0" name="Variable">Select</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="749995192995317" type="Audio">
+                            <param id="0" name="Audio file">Select</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="650146700888247">
+            <conditions>
+                <condition id="5" name="Compare axis" sid="326645054782982" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Axis">1</param>
+                    <param id="2" name="Comparison">4</param>
+                    <param id="3" name="Value">0</param>
+                </condition>
+                <condition id="3" name="Is button down" sid="760746040553489" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">13</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="408344513361268" type="Keyboard">
+                    <param id="0" name="Key">83 (S)</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="776915601468535" type="Keyboard">
+                    <param id="0" name="Key">40 (Down arrow)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="107080827419139">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="478528195726633" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="472142343848747" type="System">
+                            <param id="0" name="Variable">Select</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="279897165346553" type="Audio">
+                            <param id="0" name="Audio file">Select</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment></comment>
+        <event-block any="1" sid="453064877844704">
+            <conditions>
+                <condition id="3" name="Is button down" sid="911094108297895" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">0</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="456278782160396" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="662098657539939" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="384758089319493">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="788717801673233" type="System">
+                            <param id="0" name="Variable">Select</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="228663767121021" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="404114179014887" type="Fade">
+                            <param id="0" name="Instance variable">Fade</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="701093325095215" type="Audio">
+                            <param id="0" name="Audio file">Starting</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="953707434065602" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="-2" name="Go to layout" sid="597129587492736" type="System">
+                            <param id="0" name="Layout">Game</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="184866936164053">
+            <conditions>
+                <condition id="3" name="Is button down" sid="751033620555928" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">0</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="137893754574806" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="481785825627954" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="865664292983917">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="184917158192984" type="System">
+                            <param id="0" name="Variable">Select</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="249885107213087" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="200743065546596" type="Fade">
+                            <param id="0" name="Instance variable">Fade</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Play" sid="616430738524158" type="Audio">
+                            <param id="0" name="Audio file">Starting</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="679110990713008" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="1" name="Close" sid="495276074624338" type="Browser" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="110055740524731">
+            <conditions>
+                <condition id="3" name="Is button down" sid="505568882634320" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">0</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="919417778239592" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="2" name="Key is down" sid="624326931146818" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="457639393632185">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="573577353985399" type="System">
+                            <param id="0" name="Variable">Select</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-4" name="Trigger once while true" sid="295988854244704" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="969631221675909" type="Audio">
+                            <param id="0" name="Audio file">Starting</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="230580753640019" type="System">
+                            <param id="0" name="Variable">Menu_State</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

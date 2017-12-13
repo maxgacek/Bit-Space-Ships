@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Intro_Scripts</name>
+    <events>
+        <include>Fade_Scripts</include>
+        <event-block sid="614421746019184">
+            <conditions>
+                <condition id="-7" name="Compare time" sid="255071099237499" type="System">
+                    <param id="0" name="Comparison">0</param>
+                    <param id="1" name="Time (seconds)">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="773310247751456" type="Fade">
+                    <param id="0" name="Instance variable">Fade</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-16" name="Wait" sid="526839648352021" type="System">
+                    <param id="0" name="Seconds">1.0</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="844464817182729" type="System">
+                    <param id="0" name="Layout">Menu</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="848201893103746">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="430932109527067" type="System" />
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="894701401494374" type="Logo">
+                    <param id="0" name="Opacity">self.Opacity+10</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="919510137231020">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="490363078758450" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="758747548010395" type="Audio">
+                    <param id="0" name="Audio file">Start</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Options_Scripts</name>
+    <events>
+        <comment>Variable</comment>
+        <variable constant="0" name="Cursor" sid="666529694118798" static="0" type="number">0</variable>
+        <event-block sid="513138422629581">
+            <conditions>
+                <condition id="6" name="On object clicked" sid="766928485503343" type="Mouse">
+                    <param id="0" name="Mouse button">0</param>
+                    <param id="1" name="Click type">0</param>
+                    <param id="2" name="Object clicked">Sprite</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="943163734254424">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="956923369144716" type="Sprite">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="316018193900656" type="Sprite">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="718547377621432">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="986284347373207" type="System" />
+                        <condition id="-7" name="Compare instance variable" sid="288988420120346" type="Sprite">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="835397939313243" type="Sprite">
+                            <param id="0" name="Instance variable">State</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="809260860171727">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="122417491840545" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="870673789275880" type="Audio">
+                            <param id="0" name="Audio file">Select_Opt</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Animations</comment>
+        <event-block sid="502521018062919">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="453869763335406" type="Sprite">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="546223074748759" type="Sprite">
+                    <param id="0" name="Animation">&quot;On&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="674192831154774">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="528218582486630" type="Sprite">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="636476043518360" type="Sprite">
+                    <param id="0" name="Animation">&quot;Off&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Types</comment>
+        <event-block sid="423077159320025">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="474390440346642" type="Sprite">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="369538529215461" type="Sprite">
+                    <param id="0" name="Instance variable">Type</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="828792039602994" type="System">
+                    <param id="0" name="Variable">Cursor</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="222685504000426">
+            <conditions>
+                <condition id="-7" name="Compare instance variable" sid="906000466976065" type="Sprite">
+                    <param id="0" name="Instance variable">State</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="899715500905715" type="Sprite">
+                    <param id="0" name="Instance variable">Type</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="316707521943214" type="System">
+                    <param id="0" name="Variable">Cursor</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Var_Events</comment>
+        <event-block sid="761750074644862">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="303607857133467" type="System">
+                    <param id="0" name="Variable">Cursor</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set cursor from sprite" sid="815377684499051" type="Mouse">
+                    <param id="0" name="Sprite">Cursor</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="262231401182105">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="851714733397949" type="System">
+                    <param id="0" name="Variable">Cursor</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set cursor style" sid="806975394339512" type="Mouse">
+                    <param id="0" name="Cursor style">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <variable constant="0" name="DeafultValue" sid="457568781680645" static="0" type="number">100</variable>
+        <variable constant="0" name="Value" sid="660810199875477" static="0" type="number">100</variable>
+        <variable constant="0" name="MaxValue" sid="858325683318913" static="0" type="number">100</variable>
+        <variable constant="0" name="MinValue" sid="806901962027684" static="0" type="number">0</variable>
+        <variable constant="0" name="Step" sid="858497550553598" static="0" type="number">10</variable>
+        <event-group description="" sid="773636149802573" title="Slider">
+            <sub-events>
+                <event-block sid="189991083992038">
+                    <conditions>
+                        <condition behavior="DragDrop" id="0" name="Is dragging" sid="637701669398450" type="Slider_Slide" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="527481404129379" type="System">
+                            <param id="0" name="Variable">DeafultValue</param>
+                            <param id="1" name="Value">clamp ( round ((Slider_Slide.X - Slider_bar.X) / (Slider_bar.Width / ((MaxValue - MinValue) / Step))),0,((MaxValue-MinValue)/Step))</param>
+                        </action>
+                        <action id="-1" name="Set X" sid="899592719280719" type="Slider_Slide">
+                            <param id="0" name="X">Slider_bar.X + DeafultValue * (Slider_bar.Width / ((MaxValue - MinValue) / Step))</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="576531398649945" type="System">
+                            <param id="0" name="Variable">Value</param>
+                            <param id="1" name="Value">(DeafultValue * Step) + MinValue</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="270816832585411">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="211627020735982" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="547729454128819" type="VolumeText">
+                            <param id="0" name="Text">Value</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="101197559764254">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="743105236661408" type="Slider_Slide">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="X co-ordinate">Slider_bar.BBoxRight</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="270087685298719" type="Slider_Slide">
+                                    <param id="0" name="X">Slider_bar.BBoxRight</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="577584995597118">
+                            <conditions>
+                                <condition id="-1" name="Compare X" sid="650743933785970" type="Slider_Slide">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="X co-ordinate">Slider_bar.BBoxLeft</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-1" name="Set X" sid="622549375535548" type="Slider_Slide">
+                                    <param id="0" name="X">Slider_bar.BBoxLeft</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="684794034434013">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="869118574266128" type="System">
+                            <param id="0" name="Variable">Value</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="10" name="Set master volume" sid="426596447023432" type="Audio">
+                            <param id="0" name="dB">-40 + Value</param>
+                        </action>
+                        <action id="2" name="Set muted" sid="523777283778415" type="Audio">
+                            <param id="0" name="Tag">&quot;sound&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="944059457823554">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="427291189277081" type="System">
+                            <param id="0" name="Variable">Value</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="2" name="Set muted" sid="763078584909459" type="Audio">
+                            <param id="0" name="Tag">&quot;sound&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

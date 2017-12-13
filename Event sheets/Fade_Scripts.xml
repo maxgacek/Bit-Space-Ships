@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Fade_Scripts</name>
+    <events>
+        <comment>Functions</comment>
+        <event-block sid="248477373629249">
+            <conditions>
+                <condition id="0" name="On function" sid="818226207412458" type="Function">
+                    <param id="0" name="Name">&quot;Fade_In&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="787800428758790" type="Fade">
+                    <param id="0" name="Opacity">Fade.Opacity-2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="672429106917026">
+            <conditions>
+                <condition id="0" name="On function" sid="146265773149405" type="Function">
+                    <param id="0" name="Name">&quot;Fade_Out&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-16" name="Set opacity" sid="808356023439870" type="Fade">
+                    <param id="0" name="Opacity">Fade.Opacity+2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="258205942057632">
+            <conditions>
+                <condition id="-10" name="Compare opacity" sid="371021338866025" type="Fade">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Opacity">0</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="190846419828812" type="Fade">
+                    <param id="0" name="Instance variable">Fade</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="536870670611967" type="Function">
+                    <param id="0" name="Name">&quot;Fade_In&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="830489026381721">
+            <conditions>
+                <condition id="-10" name="Compare opacity" sid="580774960962403" type="Fade">
+                    <param id="0" name="Comparison">2</param>
+                    <param id="1" name="Opacity">100</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="594774435119042" type="Fade">
+                    <param id="0" name="Instance variable">Fade</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="817889057121971" type="Function">
+                    <param id="0" name="Name">&quot;Fade_Out&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

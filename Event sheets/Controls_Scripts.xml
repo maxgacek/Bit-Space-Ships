@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Controls_Scripts</name>
+    <events>
+        <comment>Functions</comment>
+        <event-block sid="235271120812653">
+            <conditions>
+                <condition id="0" name="On function" sid="838441610703175" type="Function">
+                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="648780473934948" type="Player">
+                    <param id="0" name="Object">Bullet_1</param>
+                    <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="538053906744854" type="Player">
+                    <param id="0" name="Object">Bullet_2</param>
+                    <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                    <param id="2" name="Image point">2</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="648801576968424" type="Player">
+                    <param id="0" name="Object">Bullet_2</param>
+                    <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                    <param id="2" name="Image point">3</param>
+                </action>
+                <action id="0" name="Play" sid="369183475932192" type="Audio">
+                    <param id="0" name="Audio file">Shoot 2</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="811733669625541" type="Player">
+                    <param id="0" name="Magnitude">8</param>
+                    <param id="1" name="Duration">0.4</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="286034659854770">
+            <conditions>
+                <condition id="0" name="On function" sid="238348108088106" type="Function">
+                    <param id="0" name="Name">&quot;Movement_Right&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="596738640088224" type="Player">
+                    <param id="0" name="Control">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="761987316379003">
+            <conditions>
+                <condition id="0" name="On function" sid="359352960868226" type="Function">
+                    <param id="0" name="Name">&quot;Movement_Left&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="265303506997074" type="Player">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="246078467682257">
+            <conditions>
+                <condition id="0" name="On function" sid="797570883017668" type="Function">
+                    <param id="0" name="Name">&quot;Movement_Up&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="452129700959712" type="Player">
+                    <param id="0" name="Control">2</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="303916480373102">
+            <conditions>
+                <condition id="0" name="On function" sid="860910477622879" type="Function">
+                    <param id="0" name="Name">&quot;Movement_Down&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="8Direction" id="7" name="Simulate control" sid="266345483081538" type="Player">
+                    <param id="0" name="Control">3</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Movement</comment>
+        <variable constant="0" name="GamepadSpeed" sid="366235820580756" static="0" type="number">250</variable>
+        <event-group description="" sid="775747377608056" title="Move">
+            <sub-events>
+                <event-block disabled="1" sid="537857259058807">
+                    <conditions>
+                        <condition id="5" name="Compare axis" sid="881750821517166" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="889866438931175" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="437514023462194">
+                    <conditions>
+                        <condition id="5" name="Compare axis" sid="519921556328101" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">0</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="801440986252165" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="730257242528383">
+                    <conditions>
+                        <condition id="5" name="Compare axis" sid="176108839952216" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">4</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="964350237062003" type="Player">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="528526710652970">
+                    <conditions>
+                        <condition id="5" name="Compare axis" sid="168883160125872" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">1</param>
+                            <param id="2" name="Comparison">2</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="503438924578313" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <comment></comment>
+                <event-block disabled="1" sid="789588410803293">
+                    <conditions>
+                        <condition id="5" name="Compare axis" sid="643973992564026" type="Gamepad">
+                            <param id="0" name="Gamepad">0</param>
+                            <param id="1" name="Axis">2</param>
+                            <param id="2" name="Comparison">1</param>
+                            <param id="3" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="713272188335723" type="spirty">
+                            <param id="0" name="Angle">angle(0,0, Gamepad.Axis(0,2), Gamepad.Axis(0,3))</param>
+                        </action>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="660107780961798" type="spirty">
+                            <param id="0" name="Speed">GamepadSpeed</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="873961633574003">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="195637497975754" type="System" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Bullet" id="0" name="Set speed" sid="203996847213872" type="spirty">
+                            <param id="0" name="Speed">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="629300630471991">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="603064478269876" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="346514494674263" type="spirty">
+                            <param id="0" name="X">lerp (self.X , Mouse.X , 0.1)</param>
+                            <param id="1" name="Y">lerp (self.Y , Mouse.Y , 0.1)</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="818456547597727">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="390261846006794" type="System">
+                                    <param id="0" name="Variable">Docked</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-22" name="Set angle toward position" sid="315283490820652" type="Player">
+                                    <param id="0" name="X">spirty.X</param>
+                                    <param id="1" name="Y">spirty.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="130542178404225">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="291815639703385" type="Keyboard">
+                            <param id="0" name="Key">87 (W)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="684519438227658" type="Function">
+                            <param id="0" name="Name">&quot;Movement_Up&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="421761922856383">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="439793551709586" type="Keyboard">
+                            <param id="0" name="Key">83 (S)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="412323219617561" type="Function">
+                            <param id="0" name="Name">&quot;Movement_Down&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="857373483951893">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="274826639352938" type="Keyboard">
+                            <param id="0" name="Key">65 (A)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="567628151880546" type="Function">
+                            <param id="0" name="Name">&quot;Movement_Left&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="461688295254778">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="240035859864919" type="Keyboard">
+                            <param id="0" name="Key">68 (D)</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="341353664774167" type="Function">
+                            <param id="0" name="Name">&quot;Movement_Right&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="129164064324690">
+                    <conditions>
+                        <condition id="2" name="Mouse button is down" sid="664322140201186" type="Mouse">
+                            <param id="0" name="Mouse button">0</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="995413875612424" type="System">
+                            <param id="0" name="Variable">Docked</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="936632059417218">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="890456571262581" type="System">
+                                    <param id="0" name="Interval (seconds)">0.15</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="433236753157722" type="Function">
+                                    <param id="0" name="Name">&quot;Shoot&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <comment>Dash</comment>
+                <event-block sid="451604749044177">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="531599742605807" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-30" name="Set layer effect enabled" sid="933376670099516" type="System">
+                            <param id="0" name="Layer">&quot;Ships&quot;</param>
+                            <param id="1" name="Mode">0</param>
+                            <param id="2" name="Effect">&quot;BlurHorizontal&quot;</param>
+                        </action>
+                        <action id="-30" name="Set layer effect enabled" sid="742345906068058" type="System">
+                            <param id="0" name="Layer">&quot;Bullets&quot;</param>
+                            <param id="1" name="Mode">0</param>
+                            <param id="2" name="Effect">&quot;BlurHorizontal&quot;</param>
+                        </action>
+                        <action id="-30" name="Set layer effect enabled" sid="744010115377266" type="System">
+                            <param id="0" name="Layer">&quot;Background&quot;</param>
+                            <param id="1" name="Mode">0</param>
+                            <param id="2" name="Effect">&quot;BlurVertical&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="918661468186389">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="198351264132869" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="261050602417580" type="System">
+                            <param id="0" name="Variable">Docked</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="Speed" sid="373269511057518" static="0" type="number">1400</variable>
+                        <event-block sid="187716881980252">
+                            <conditions />
+                            <actions>
+                                <action behavior="8Direction" id="4" name="Set max speed" sid="941066034672831" type="Player">
+                                    <param id="0" name="Max Speed">Speed</param>
+                                </action>
+                                <action behavior="8Direction" id="3" name="Set speed" sid="152157923565268" type="Player">
+                                    <param id="0" name="Speed">Speed</param>
+                                </action>
+                                <action id="-30" name="Set layer effect enabled" sid="522517595242880" type="System">
+                                    <param id="0" name="Layer">&quot;Ships&quot;</param>
+                                    <param id="1" name="Mode">1</param>
+                                    <param id="2" name="Effect">&quot;BlurHorizontal&quot;</param>
+                                </action>
+                                <action id="-30" name="Set layer effect enabled" sid="236903565686055" type="System">
+                                    <param id="0" name="Layer">&quot;Bullets&quot;</param>
+                                    <param id="1" name="Mode">1</param>
+                                    <param id="2" name="Effect">&quot;BlurHorizontal&quot;</param>
+                                </action>
+                                <action id="-30" name="Set layer effect enabled" sid="842353342991322" type="System">
+                                    <param id="0" name="Layer">&quot;Background&quot;</param>
+                                    <param id="1" name="Mode">1</param>
+                                    <param id="2" name="Effect">&quot;BlurVertical&quot;</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="194472251987506" type="System">
+                                    <param id="0" name="Seconds">0.3</param>
+                                </action>
+                                <action id="-30" name="Set layer effect enabled" sid="562954008389065" type="System">
+                                    <param id="0" name="Layer">&quot;Ships&quot;</param>
+                                    <param id="1" name="Mode">0</param>
+                                    <param id="2" name="Effect">&quot;BlurHorizontal&quot;</param>
+                                </action>
+                                <action id="-30" name="Set layer effect enabled" sid="803909585340251" type="System">
+                                    <param id="0" name="Layer">&quot;Bullets&quot;</param>
+                                    <param id="1" name="Mode">0</param>
+                                    <param id="2" name="Effect">&quot;BlurHorizontal&quot;</param>
+                                </action>
+                                <action id="-30" name="Set layer effect enabled" sid="992161568056604" type="System">
+                                    <param id="0" name="Layer">&quot;Background&quot;</param>
+                                    <param id="1" name="Mode">0</param>
+                                    <param id="2" name="Effect">&quot;BlurVertical&quot;</param>
+                                </action>
+                                <action behavior="8Direction" id="4" name="Set max speed" sid="560919784825581" type="Player">
+                                    <param id="0" name="Max Speed">700</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment></comment>
+        <comment>Shooting</comment>
+        <event-block any="1" sid="606561156491457">
+            <conditions>
+                <condition id="3" name="Is button down" sid="258855145637992" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">7</param>
+                </condition>
+                <condition id="3" name="Is button down" sid="324140465357538" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">6</param>
+                </condition>
+                <condition id="3" name="Is button down" sid="858654035820274" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">4</param>
+                </condition>
+                <condition id="3" name="Is button down" sid="882445010303959" type="Gamepad">
+                    <param id="0" name="Gamepad">0</param>
+                    <param id="1" name="Button">5</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="173173973484458">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="939814180405706" type="System">
+                            <param id="0" name="Interval (seconds)">0.15</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="305083655879655" type="Function">
+                            <param id="0" name="Name">&quot;Shoot&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment>Particles</comment>
+        <event-block sid="125354650337552">
+            <conditions>
+                <condition behavior="8Direction" id="0" name="Is moving" sid="688820568916866" type="Player" />
+                <condition id="-14" name="Compare variable" sid="270961629277291" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set rate" sid="119130112179629" type="Ship_Particles">
+                    <param id="0" name="Rate">10</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="345447830466779" type="Ship_Particles">
+                    <param id="0" name="Object">Player</param>
+                    <param id="1" name="Image point (optional)">4</param>
+                </action>
+                <action id="2" name="Set spray cone" sid="802862782575994" type="Ship_Particles">
+                    <param id="0" name="Spray cone">Player.Angle</param>
+                </action>
+                <action id="-8" name="Set angle" sid="929432168121264" type="Ship_Particles">
+                    <param id="0" name="Angle">Player.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="384418880557230">
+            <conditions>
+                <condition behavior="8Direction" id="0" inverted="1" name="Is moving" sid="855689019468400" type="Player" />
+                <condition id="-14" name="Compare variable" sid="829770075450881" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set rate" sid="328094970446328" type="Ship_Particles">
+                    <param id="0" name="Rate">2</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="899244578348329" type="Ship_Particles">
+                    <param id="0" name="Object">Player</param>
+                    <param id="1" name="Image point (optional)">4</param>
+                </action>
+                <action id="2" name="Set spray cone" sid="996892501133661" type="Ship_Particles">
+                    <param id="0" name="Spray cone">Player.Angle &amp; Player.Angle</param>
+                </action>
+                <action id="-8" name="Set angle" sid="302792082702051" type="Ship_Particles">
+                    <param id="0" name="Angle">Player.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="651105836117801">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="995259073971591" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="1" name="Set rate" sid="999680525907873" type="Ship_Particles">
+                    <param id="0" name="Rate">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <event-block sid="385250618650912">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="218947886119190" type="Bullet_1">
+                    <param id="0" name="Object">SpaceStation</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="591677753414583" type="Bullet_1" />
+            </actions>
+        </event-block>
+        <event-block sid="556003157683195">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="299730238147722" type="Bullet_2">
+                    <param id="0" name="Object">SpaceStation</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="196341296650321" type="Bullet_2" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

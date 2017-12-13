@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Main</name>
+    <events>
+        <variable constant="0" name="Energy" sid="653384175468211" static="0" type="number">10</variable>
+        <include>SpaceStation</include>
+        <variable constant="0" name="Scrap" sid="890977951263130" static="0" type="number">0</variable>
+        <include>Fade_Scripts</include>
+        <variable constant="0" name="Score" sid="524814367566033" static="0" type="number">0</variable>
+        <include>Enemy_Scripts</include>
+        <include>Controls_Scripts</include>
+        <comment></comment>
+        <event-block sid="838099630354541">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="309939771175072" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="632729861398939" type="Text">
+                    <param id="0" name="Text">&quot;FPS: &quot; &amp; fps &amp; newline &amp;&#x0D;&#x0A;&quot;Mem: &quot; &amp; ImageMemoryUsage &amp; newline &amp;&#x0D;&#x0A;&quot;Obj: &quot; &amp; objectcount &amp; newline &amp;&#x0D;&#x0A;&quot;Player_Angle: &quot; &amp; Player.Angle &amp; newline &amp;&#x0D;&#x0A;&quot;Particle_Angle: &quot; &amp; Ship_Particles.Angle &amp; newline &amp;&#x0D;&#x0A;&quot;---------------------------&quot; &amp; newline &amp;&#x0D;&#x0A;&quot;Gamepad LX: &quot; &amp; Gamepad.RawAxis(0, 0) &amp; newline &amp;&#x0D;&#x0A;&quot;Gamepad LY: &quot; &amp; Gamepad.RawAxis(0, 1) &amp; newline &amp;&#x0D;&#x0A;&quot;Gamepad RX: &quot; &amp; Gamepad.RawAxis(0, 2) &amp; newline &amp;&#x0D;&#x0A;&quot;Gamepad RY: &quot; &amp; Gamepad.RawAxis(0, 3) &amp; newline </param>
+                </action>
+                <action disabled="1" id="-20" name="Set layout scale" sid="744428156931519" type="System">
+                    <param id="0" name="Scale">0.5</param>
+                </action>
+                <action id="0" name="Set text" sid="665962250671567" type="Score_Text">
+                    <param id="0" name="Text">&quot;Score: &quot; &amp; Score</param>
+                </action>
+                <action id="-8" name="Set angle" sid="866307750589639" type="Ship_Particles">
+                    <param id="0" name="Angle">-Player.8Direction.MovingAngle</param>
+                </action>
+                <action disabled="1" id="-22" name="Set angle toward position" sid="754347458561340" type="Player">
+                    <param id="0" name="X">Sprite2.X</param>
+                    <param id="1" name="Y">Sprite2.Y</param>
+                </action>
+                <action id="0" name="Set text" sid="733163330469757" type="ScrapText">
+                    <param id="0" name="Text">Scrap</param>
+                </action>
+                <action id="-24" name="Move to top" sid="302452998458206" type="SpaceStation" />
+            </actions>
+        </event-block>
+        <event-block sid="869504513770590">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="826942170249000" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="727147867712418" type="Fade">
+                    <param id="0" name="Instance variable">Fade</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="927767768364104">
+            <conditions>
+                <condition id="2" name="Key is down" sid="289735078904968" type="Keyboard">
+                    <param id="0" name="Key">50 (2)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="390148118341060" type="System">
+                    <param id="0" name="Object to create">Enemy</param>
+                    <param id="1" name="Layer">&quot;Ships&quot;</param>
+                    <param id="2" name="X">random(0, LayoutWidth)</param>
+                    <param id="3" name="Y">random(0, LayoutHeight)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="702292853823868">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="970427089897540" type="System">
+                    <param id="0" name="Interval (seconds)">10</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Create object" sid="818131787340757" type="System">
+                    <param id="0" name="Object to create">Enemy</param>
+                    <param id="1" name="Layer">&quot;Ships&quot;</param>
+                    <param id="2" name="X">random(0, LayoutWidth)</param>
+                    <param id="3" name="Y">random(0, LayoutHeight)</param>
+                </action>
+            </actions>
+        </event-block>
+        <variable constant="0" name="ShowBar" sid="828864342334465" static="0" type="number">0</variable>
+        <event-group description="" sid="550037181026322" title="UI">
+            <sub-events>
+                <event-block sid="227617954140602">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="519843507757695" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="250931060502157">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="788518778173981" type="System">
+                                    <param id="0" name="Variable">ShowBar</param>
+                                    <param id="1" name="Value">(280 / 10) * Energy</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="464663760888366">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="309015242582776" type="System">
+                                    <param id="0" name="Variable">Energy</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="446988045243464" type="hpBar">
+                                    <param id="0" name="Height">lerp (hpBar.Height , ShowBar , 0.01)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="380009658424102">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="242894802225212" type="System">
+                                    <param id="0" name="Variable">Energy</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-6" name="Set height" sid="636252182251820" type="hpBar">
+                                    <param id="0" name="Height">5</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="331386253076435">
+                    <conditions />
+                    <actions />
+                </event-block>
+                <event-block sid="685611774751507">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="291965066628266" type="UI_ButtonDock" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="858078053855165" type="UI_ButtonDock">
+                            <param id="0" name="Pin to">MonitorTopLeft</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="242474937729816">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="599445758821658" type="UI_ButtonUndock" />
+                    </conditions>
+                    <actions>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="395907861929884" type="UI_ButtonUndock">
+                            <param id="0" name="Pin to">MonitorTopLeft</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment></comment>
+        <event-block sid="915069768162895">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="241678130859589" type="Keyboard">
+                    <param id="0" name="Key">192 (`)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="703759479779279" type="Text">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="837227257963655">
+            <conditions>
+                <condition id="3" name="On key released" sid="165320683580776" type="Keyboard">
+                    <param id="0" name="Key">49 (1)</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="680060091533373" type="Text">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <variable constant="0" name="RadarScale" sid="710311278802983" static="0" type="number">0.03</variable>
+        <event-group description="" sid="737124428128970" title="Radar ">
+            <sub-events>
+                <event-group description="" sid="929006448319019" title="Enemy1">
+                    <sub-events>
+                        <event-block sid="783015415580717">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="915794517204170" type="System">
+                                    <param id="0" name="First value">Enemy.Count</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">Radar_Enemy1.Count</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="508116636562482" type="System">
+                                    <param id="0" name="Object to create">Radar_Enemy1</param>
+                                    <param id="1" name="Layer">&quot;UI&quot;</param>
+                                    <param id="2" name="X">0</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="387648726987674">
+                            <conditions>
+                                <condition id="-19" name="Pick all" sid="461379632924694" type="System">
+                                    <param id="0" name="Object">Enemy</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="764122486858040" type="Radar_Enemy1">
+                                    <param id="0" name="X">(Enemy.X - Player.X) * RadarScale + Radar.X</param>
+                                    <param id="1" name="Y">(Enemy.Y - Player.Y) * RadarScale + Radar.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="792549583316458">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="117541129486491" type="Enemy" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="166453646571352" type="Radar_Enemy1" />
+                            </actions>
+                        </event-block>
+                        <comment></comment>
+                        <event-block sid="129443123683910">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="267743964194309" type="Radar_Enemy1">
+                                    <param id="0" name="Object">Radar</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="412109306919133" type="Radar_Enemy1">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="977562042065471">
+                            <conditions>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="318202689591677" type="Radar_Enemy1">
+                                    <param id="0" name="Object">Radar</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="972186991900026" type="Radar_Enemy1">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="854973144834438" title="Station">
+                    <sub-events>
+                        <event-block sid="124995209009266">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="709665146714673" type="System">
+                                    <param id="0" name="First value">SpaceStation.Count</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">Radar_Station.Count</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="218986872074230" type="System">
+                                    <param id="0" name="Object to create">Radar_Station</param>
+                                    <param id="1" name="Layer">&quot;UI&quot;</param>
+                                    <param id="2" name="X">0</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="693843001480324">
+                            <conditions>
+                                <condition id="-19" name="Pick all" sid="151561329448862" type="System">
+                                    <param id="0" name="Object">SpaceStation</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="362205553023339" type="Radar_Station">
+                                    <param id="0" name="X">(SpaceStation.X - Player.X) * RadarScale + Radar.X</param>
+                                    <param id="1" name="Y">(SpaceStation.Y - Player.Y) * RadarScale + Radar.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="249140239507567">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="470914023104828" type="SpaceStation" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="131783771228197" type="Radar_Station" />
+                            </actions>
+                        </event-block>
+                        <comment></comment>
+                        <event-block sid="157891083708320">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="783802270110116" type="Radar_Station">
+                                    <param id="0" name="Object">Radar</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="538296872905460" type="Radar_Station">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="199043602770547">
+                            <conditions>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="360548490416780" type="Radar_Station">
+                                    <param id="0" name="Object">Radar</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="939071175935664" type="Radar_Station">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

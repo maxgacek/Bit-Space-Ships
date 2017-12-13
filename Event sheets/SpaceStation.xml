@@ -1,0 +1,530 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>SpaceStation</name>
+    <events>
+        <event-block sid="939166528932911">
+            <conditions>
+                <condition id="-18" name="On created" sid="923277781515296" type="SpaceStation" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="237128083422096">
+                    <conditions>
+                        <condition id="-4" name="Trigger once while true" sid="297039244142883" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Spawn another object" sid="495242668498574" type="SpaceStation">
+                            <param id="0" name="Object">StationPlace</param>
+                            <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                            <param id="2" name="Image point">1</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="110555107711174" type="SpaceStation">
+                            <param id="0" name="Object">StationArm</param>
+                            <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                            <param id="2" name="Image point">2</param>
+                        </action>
+                        <action id="0" name="Spawn another object" sid="540368242286167" type="SpaceStation">
+                            <param id="0" name="Object">StationDoorsLeft</param>
+                            <param id="1" name="Layer">&quot;Bullets&quot;</param>
+                            <param id="2" name="Image point">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <comment></comment>
+        <event-block sid="411592221844555">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="558601727711524" type="Player">
+                    <param id="0" name="Object">StationPlace</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="743506039400475">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="427460877337544" type="UI_ButtonDock" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="526281011748909">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="338404548082804" type="System">
+                                    <param id="0" name="Variable">Docked</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action behavior="8Direction" id="2" name="Set ignoring input" sid="354907689400435" type="Player">
+                                    <param id="0" name="Input">1</param>
+                                </action>
+                                <action behavior="8Direction" id="0" name="Stop" sid="698294507175941" type="Player" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="325894621828657">
+                                    <conditions />
+                                    <actions>
+                                        <action id="3" name="Set enabled" sid="366945973958245" type="UI_ButtonDock">
+                                            <param id="0" name="Mode">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="294338941383433">
+                    <conditions />
+                    <actions>
+                        <action id="-3" name="Set position" sid="220037038231033" type="MonitorTopLeft">
+                            <param id="0" name="X">lerp ( MonitorTopLeft.X , 0 + 220  , 0.025)</param>
+                            <param id="1" name="Y">Self.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="863139184827227">
+            <conditions>
+                <condition id="1" inverted="1" name="Is overlapping another object" sid="185610440781764" type="Player">
+                    <param id="0" name="Object">StationPlace</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="102855861671867">
+                    <conditions />
+                    <actions>
+                        <action id="-3" name="Set position" sid="886940995926391" type="MonitorTopLeft">
+                            <param id="0" name="X">lerp ( MonitorTopLeft.X , 0 , 0.025)</param>
+                            <param id="1" name="Y">Self.Y</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="995707107330223">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="299557368619035" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="333277743160290">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="544948646951879" type="Player">
+                            <param id="0" name="Object">StationPlace</param>
+                        </condition>
+                        <condition id="-15" name="Pick nearest/furthest" sid="817382049958785" type="Player">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">StationPlace.X</param>
+                            <param id="2" name="Y">StationPlace.Y</param>
+                        </condition>
+                        <condition id="-15" name="Pick nearest/furthest" sid="345873942461370" type="Player">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">StationArm.X</param>
+                            <param id="2" name="Y">StationArm.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="713191379675763">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Set position" sid="926871011128870" type="Player">
+                                    <param id="0" name="X">lerp(self.X , StationPlace.X , 0.05)</param>
+                                    <param id="1" name="Y">lerp(self.Y , StationPlace.Y , 0.05)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="550947022077920">
+                            <conditions>
+                                <condition id="-11" inverted="1" name="Is within angle" sid="754563323200167" type="Player">
+                                    <param id="0" name="Within">2</param>
+                                    <param id="1" name="Angle">SpaceStation.Angle - 90</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="160215168682140">
+                                    <conditions>
+                                        <condition id="-11" name="Is within angle" sid="898432793290849" type="Player">
+                                            <param id="0" name="Within">90</param>
+                                            <param id="1" name="Angle">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="327816365844821" type="Player">
+                                            <param id="0" name="Angle">Self.Angle - 2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="324020758393626">
+                                    <conditions>
+                                        <condition id="-11" name="Is within angle" sid="109085639324202" type="Player">
+                                            <param id="0" name="Within">90</param>
+                                            <param id="1" name="Angle">180</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-8" name="Set angle" sid="985620842763493" type="Player">
+                                            <param id="0" name="Angle">Self.Angle + 2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <comment></comment>
+                        <event-block sid="684422460758025">
+                            <conditions>
+                                <condition id="-5" name="Compare width" sid="649753779107215" type="StationDoorsLeft">
+                                    <param id="0" name="Comparison">2</param>
+                                    <param id="1" name="Width">200</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="361478658875826" type="StationDoorsLeft">
+                                    <param id="0" name="Width">self.Width + 1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="418814635677941">
+                            <conditions />
+                            <actions />
+                            <sub-events>
+                                <event-block sid="108712538183103">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="557870740670613" type="StationArm">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Y co-ordinate">Player.Y - 100</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="290806906509576" type="StationArm">
+                                            <param id="0" name="X">Self.X</param>
+                                            <param id="1" name="Y">Self.Y + 1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="327632450753326">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="312244086834065" type="StationArm">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">Player.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="938645969960665" type="StationArm">
+                                            <param id="0" name="X">Self.X + 1</param>
+                                            <param id="1" name="Y">Self.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="858851312274976">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="166819233979347" type="StationArm">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Player.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="860449746843878" type="StationArm">
+                                            <param id="0" name="X">Self.X - 1</param>
+                                            <param id="1" name="Y">Self.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="767655447842335">
+                    <conditions>
+                        <condition id="-5" name="Compare width" sid="102649952242536" type="StationDoorsLeft">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Width">200</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="937861900331928">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="490853849334501" type="System">
+                                    <param id="0" name="Variable">Docked</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="230225795795134">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="904994132275042" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="3" name="Set enabled" sid="340021526624779" type="UI_ButtonUndock">
+                    <param id="0" name="Mode">1</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="936826653204999">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="583335605224799" type="System">
+                            <param id="0" name="Variable">Scrap</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="928180959764644">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="859661246528863" type="System">
+                                    <param id="0" name="Variable">Energy</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">10</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="984445763928005">
+                                    <conditions>
+                                        <condition id="-6" name="Every X seconds" sid="512485742569749" type="System">
+                                            <param id="0" name="Interval (seconds)">1.0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="531752563198474" type="System">
+                                            <param id="0" name="Variable">Energy</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-11" name="Subtract from" sid="869060857520358" type="System">
+                                            <param id="0" name="Variable">Scrap</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="286533541537735">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="670183879236282" type="System">
+                            <param id="0" name="Variable">Energy</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="709627221374195" type="System">
+                            <param id="0" name="Variable">Energy</param>
+                            <param id="1" name="Value">10</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="197901285651093">
+                    <conditions>
+                        <condition id="0" name="On clicked" sid="965735602540925" type="UI_ButtonUndock" />
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="410211576163742" type="System">
+                            <param id="0" name="Variable">Docked</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="389672120775624">
+                            <conditions />
+                            <actions>
+                                <action id="3" name="Set enabled" sid="518044954705674" type="UI_ButtonUndock">
+                                    <param id="0" name="Mode">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="233661724410888">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="831634523352367" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">3</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="422273196283358">
+                    <conditions>
+                        <condition id="-15" name="Pick nearest/furthest" sid="266137789825007" type="Player">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">StationPlace.X</param>
+                            <param id="2" name="Y">StationPlace.Y</param>
+                        </condition>
+                        <condition id="-15" name="Pick nearest/furthest" sid="377681950722339" type="Player">
+                            <param id="0" name="Which">0</param>
+                            <param id="1" name="X">StationArm.X</param>
+                            <param id="2" name="Y">StationArm.Y</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="783414656149047">
+                            <conditions>
+                                <condition id="-11" inverted="1" name="Is within angle" sid="566206035151253" type="Player">
+                                    <param id="0" name="Within">2</param>
+                                    <param id="1" name="Angle">SpaceStation.Angle + 90</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-8" name="Set angle" sid="639125376562567" type="Player">
+                                    <param id="0" name="Angle">Self.Angle + 2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="422332086005058">
+                            <conditions>
+                                <condition id="-5" name="Compare width" sid="889835864501280" type="StationDoorsLeft">
+                                    <param id="0" name="Comparison">4</param>
+                                    <param id="1" name="Width">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="478981587019890" type="StationDoorsLeft">
+                                    <param id="0" name="Width">self.Width - 1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="202326875020958">
+                            <conditions />
+                            <actions />
+                            <sub-events>
+                                <event-block sid="321559832985938">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="255876044435580" type="StationArm">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="Y co-ordinate">SpaceStation.ImagePointY(2)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="169448595088744" type="StationArm">
+                                            <param id="0" name="X">Self.X</param>
+                                            <param id="1" name="Y">Self.Y - 1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="736212969292273">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="672917249759257" type="StationArm">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">Player.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="479817634773614" type="StationArm">
+                                            <param id="0" name="X">Self.X + 1</param>
+                                            <param id="1" name="Y">Self.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="974826783969997">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="454246124005247" type="StationArm">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Player.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Set position" sid="171390004237764" type="StationArm">
+                                            <param id="0" name="X">Self.X - 1</param>
+                                            <param id="1" name="Y">Self.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="141365026680548">
+                    <conditions>
+                        <condition id="-5" name="Compare width" sid="683735046406290" type="StationDoorsLeft">
+                            <param id="0" name="Comparison">0</param>
+                            <param id="1" name="Width">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="133943533258545" type="System">
+                            <param id="0" name="Variable">Docked</param>
+                            <param id="1" name="Value">4</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="682878090347048">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="335491715211806" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">4</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="253138966241528">
+                    <conditions />
+                    <actions>
+                        <action behavior="8Direction" id="10" name="Set vector Y" sid="540482013728267" type="Player">
+                            <param id="0" name="Vector Y">500</param>
+                        </action>
+                        <action id="-16" name="Wait" sid="131543775423125" type="System">
+                            <param id="0" name="Seconds">0.3</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="986570610964473" type="System">
+                            <param id="0" name="Variable">Docked</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="885883674591339">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="600517627268567" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="519224548585919">
+                    <conditions />
+                    <actions>
+                        <action id="3" name="Set enabled" sid="287534982036493" type="UI_ButtonDock">
+                            <param id="0" name="Mode">1</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="971847184080204" type="UI_ButtonUndock">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action behavior="8Direction" id="2" name="Set ignoring input" sid="841034805149081" type="Player">
+                            <param id="0" name="Input">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Camera</name>
+    <events>
+        <variable constant="0" name="cameraSpeed" sid="922308726770217" static="0" type="number">0.06</variable>
+        <event-block sid="705281913441016">
+            <conditions>
+                <condition id="0" name="On function" sid="403191885303702" type="Function">
+                    <param id="0" name="Name">&quot;CameraMove&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="454379528720538">
+                    <conditions />
+                    <actions>
+                        <action id="-3" name="Set position" sid="184679557602703" type="Camera">
+                            <param id="0" name="X">lerp(self.X, Function.Param(0), cameraSpeed)</param>
+                            <param id="1" name="Y">lerp(self.Y, Function.Param(1), cameraSpeed)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

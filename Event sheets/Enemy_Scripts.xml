@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Enemy_Scripts</name>
+    <events>
+        <variable constant="0" name="Docked" sid="435336034532177" static="0" type="number">0</variable>
+        <event-block sid="583816924964644">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="612059541388929" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+                <condition id="-1" name="Every tick" sid="609780431949181" type="System" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="606006094903650" type="Enemy">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">Player.Y</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="300735825906575">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="670887683634894" type="System">
+                    <param id="0" name="Variable">Docked</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+                <condition id="-6" name="Every X seconds" sid="613332403767212" type="System">
+                    <param id="0" name="Interval (seconds)">7</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-8" name="Set angle" sid="759410970497754" type="Enemy">
+                    <param id="0" name="Angle">random(0,360)</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Functions</comment>
+        <event-block sid="716596066163193">
+            <conditions>
+                <condition id="0" name="On function" sid="646005755823755" type="Function">
+                    <param id="0" name="Name">&quot;Enemy_Hit&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Play" sid="612914975093941" type="Audio">
+                    <param id="0" name="Audio file">Expolosion</param>
+                    <param id="2" name="Loop">0</param>
+                    <param id="3" name="Volume">0</param>
+                    <param id="1" name="Tag (optional)">&quot;sound&quot;</param>
+                </action>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="404715607772367" type="Player">
+                    <param id="0" name="Magnitude">50</param>
+                    <param id="1" name="Duration">0.4</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="348076827724190" type="System">
+                    <param id="0" name="Variable">Score</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Colisions</comment>
+        <event-block any="1" sid="799116275845244">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="115047401552148" type="Bullet_1">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="546805436752809" type="Enemy">
+                    <param id="0" name="Instance variable">HP</param>
+                    <param id="1" name="Value">Bullet_1.DMG</param>
+                </action>
+                <action id="-9" name="Destroy" sid="498439226574693" type="Bullet_1" />
+            </actions>
+        </event-block>
+        <event-block any="1" sid="804058025288753">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="351656106684488" type="Bullet_2">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="868172621740217" type="Enemy">
+                    <param id="0" name="Instance variable">HP</param>
+                    <param id="1" name="Value">Bullet_2.DMG</param>
+                </action>
+                <action id="-9" name="Destroy" sid="605956024851809" type="Bullet_2" />
+            </actions>
+        </event-block>
+        <event-block sid="413416783174814">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="231024365578599" type="Player">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-12" name="Subtract from" sid="523928724974076" type="Player">
+                    <param id="0" name="Instance variable">HP</param>
+                    <param id="1" name="Value">5</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment>Death</comment>
+        <event-block sid="139275135520538">
+            <conditions>
+                <condition id="-11" name="For Each" sid="167844323534532" type="System">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="598493768009777" type="Enemy">
+                    <param id="0" name="Instance variable">HP</param>
+                    <param id="1" name="Comparison">3</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Spawn another object" sid="304192671415756" type="Enemy">
+                    <param id="0" name="Object">Explosion_Particles</param>
+                    <param id="1" name="Layer">&quot;Ships&quot;</param>
+                    <param id="2" name="Image point">0</param>
+                </action>
+                <action id="0" name="Call function" sid="910984253472316" type="Function">
+                    <param id="0" name="Name">&quot;Enemy_Hit&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="0" name="Spawn another object" sid="736252587910453" type="Enemy">
+                    <param id="0" name="Object">Scrap</param>
+                    <param id="1" name="Layer">&quot;Ships&quot;</param>
+                    <param id="2" name="Image point">3</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="796173225100417" type="Enemy">
+                    <param id="0" name="Object">Scrap</param>
+                    <param id="1" name="Layer">&quot;Ships&quot;</param>
+                    <param id="2" name="Image point">1</param>
+                </action>
+                <action id="0" name="Spawn another object" sid="293691859947909" type="Enemy">
+                    <param id="0" name="Object">Scrap</param>
+                    <param id="1" name="Layer">&quot;Ships&quot;</param>
+                    <param id="2" name="Image point">2</param>
+                </action>
+                <action id="-9" name="Destroy" sid="252740125632101" type="Enemy" />
+            </actions>
+        </event-block>
+        <comment>Ai</comment>
+        <event-block sid="687592207434304">
+            <conditions>
+                <condition id="-4" name="Is outside layout" sid="424521404830173" type="Enemy" />
+            </conditions>
+            <actions>
+                <action id="-22" name="Set angle toward position" sid="914371812025154" type="Enemy">
+                    <param id="0" name="X">Player.X</param>
+                    <param id="1" name="Y">Player.Y</param>
+                </action>
+                <action id="-18" name="Rotate clockwise" sid="315902439197653" type="Enemy">
+                    <param id="0" name="Degrees">random(-30, 30)</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block any="1" sid="896752127025191">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="837283456267573" type="Enemy">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="153773070909378" type="Enemy">
+                    <param id="0" name="Object">Enemy</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Bullet" id="4" name="Bounce off object" sid="723371538249386" type="Enemy">
+                    <param id="0" name="Object">Enemy</param>
+                </action>
+            </actions>
+        </event-block>
+        <comment></comment>
+        <comment></comment>
+        <variable constant="0" name="Var" sid="904870307992111" static="0" type="number">0</variable>
+        <event-block sid="627622142823109">
+            <conditions>
+                <condition id="-18" name="On created" sid="123039732679566" type="Scrap" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="326082102016823" type="System">
+                    <param id="0" name="Variable">Var</param>
+                    <param id="1" name="Value">ceil(random(0,2))</param>
+                </action>
+            </actions>
+            <sub-events>
+                <event-block sid="789487791896675">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="534868167813048" type="System">
+                            <param id="0" name="Variable">Var</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="549064945939775" type="Scrap">
+                            <param id="0" name="Animation">&quot;type1&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="548799550758486">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="415100170365687" type="System">
+                            <param id="0" name="Variable">Var</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="4" name="Set animation" sid="173815801627197" type="Scrap">
+                            <param id="0" name="Animation">&quot;type2&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="682806866059253">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="330603111198194" type="Player">
+                    <param id="0" name="Object">Scrap</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Destroy" sid="705984881256660" type="Scrap" />
+                <action id="-10" name="Add to" sid="325730746279246" type="System">
+                    <param id="0" name="Variable">Scrap</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="553739691300068">
+            <conditions>
+                <condition id="-11" name="For Each" sid="633666330535399" type="System">
+                    <param id="0" name="Object">Scrap</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="983720145572255">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="911572158423359" type="System">
+                            <param id="0" name="First value">distance(Player.X, Player.Y, scrap.X , scrap.Y)</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">300</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="699311870574575" type="System">
+                            <param id="0" name="First value">distance(Player.X, Player.Y, scrap.X , scrap.Y)</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Second value">150</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="616938242167259" type="Scrap">
+                            <param id="0" name="X">lerp(Self.X , Player.X , 0.01)</param>
+                            <param id="1" name="Y">lerp(Self.Y , Player.Y , 0.01)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="228715361896368">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="153695451944280" type="System">
+                            <param id="0" name="First value">distance(Player.X, Player.Y, scrap.X , scrap.Y)</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Second value">150</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Set position" sid="194658474914422" type="Scrap">
+                            <param id="0" name="X">lerp(Self.X , Player.X , 0.1)</param>
+                            <param id="1" name="Y">lerp(Self.Y , Player.Y , 0.1)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="706247039645754">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="229013229491533" type="Enemy">
+                    <param id="0" name="Object">Player</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="307510956146189">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="308511763958489" type="System">
+                            <param id="0" name="Variable">Energy</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="569448705026083" type="System">
+                            <param id="0" name="Variable">Energy</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="666893790873501" title="Enemy 2">
+            <sub-events>
+                <event-block sid="903584101310847">
+                    <conditions>
+                        <condition id="-1" name="Every tick" sid="231932754773799" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="704621969244821">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
