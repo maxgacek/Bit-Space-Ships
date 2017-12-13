@@ -317,13 +317,12 @@
                             </conditions>
                             <actions />
                             <sub-events>
-                                <event-block any="1" sid="515016435992770">
+                                <event-block sid="515016435992770">
                                     <conditions>
-                                        <condition behavior="LineOfSight_Up" id="0" name="Has LOS to object" sid="716515275895414" type="Enemy2">
-                                            <param id="0" name="Object">Player</param>
-                                        </condition>
-                                        <condition behavior="LineOfSight_Down" id="0" name="Has LOS to object" sid="880629906215668" type="Enemy2">
-                                            <param id="0" name="Object">Player</param>
+                                        <condition id="-8" name="Compare two values" sid="282730410895816" type="System">
+                                            <param id="0" name="First value">distance(Enemy2.X , Enemy2.Y , Player.X , Player.Y)</param>
+                                            <param id="1" name="Comparison">2</param>
+                                            <param id="2" name="Second value">750</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -349,8 +348,9 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-8" name="Set angle" sid="989937753133840" type="EnemyBullet">
-                                            <param id="0" name="Angle">Enemy2.Angle</param>
+                                        <action id="-22" name="Set angle toward position" sid="989937753133840" type="EnemyBullet">
+                                            <param id="0" name="X">Player.X + ceil(random( - 15 , 15))</param>
+                                            <param id="1" name="Y">Player.Y + ceil(random( - 15 , 15))</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -416,67 +416,98 @@
                     </sub-events>
                 </event-block>
                 <comment></comment>
+                <event-block sid="456953261993692">
+                    <conditions>
+                        <condition id="-18" name="On created" sid="870192683641232" type="Enemy2" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="967517070964873" type="Enemy2">
+                            <param id="0" name="Instance variable">Target</param>
+                            <param id="1" name="Value">floor(random(5,8))</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="625682055165539">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="101650139761036" type="System">
+                            <param id="0" name="Interval (seconds)">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Set value" sid="831605009435539" type="Enemy2">
+                            <param id="0" name="Instance variable">Target</param>
+                            <param id="1" name="Value">floor(random(5,8))</param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="414534842651065">
                     <conditions>
-                        <condition id="-8" name="Compare two values" sid="984897886582880" type="System">
+                        <condition disabled="1" id="-8" name="Compare two values" sid="984897886582880" type="System">
                             <param id="0" name="First value">distance(Enemy2.X , Enemy2.Y , Player.X , Player.Y)</param>
                             <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Second value">200</param>
+                            <param id="2" name="Second value">0</param>
                         </condition>
+                        <condition id="-1" name="Every tick" sid="334869953921608" type="System" />
                     </conditions>
                     <actions />
                     <sub-events>
-                        <event-block sid="270449049552882">
-                            <conditions>
-                                <condition id="-1" name="Compare X" sid="432015727268841" type="Enemy2">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="X co-ordinate">Player.ImagePointX(5)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="292684052182704" type="Enemy2">
-                                    <param id="0" name="Control">0</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="182578469814355">
-                            <conditions>
-                                <condition id="-1" name="Compare X" sid="888571448181628" type="Enemy2">
-                                    <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="X co-ordinate">Player.ImagePointX(5)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="242275939176864" type="Enemy2">
-                                    <param id="0" name="Control">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="833198318745044">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="165037575319239" type="Enemy2">
-                                    <param id="0" name="Comparison">2</param>
-                                    <param id="1" name="Y co-ordinate">Player.ImagePointY(5)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="468260669673441" type="Enemy2">
-                                    <param id="0" name="Control">3</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="698396372123874">
-                            <conditions>
-                                <condition id="-2" name="Compare Y" sid="553440316549582" type="Enemy2">
-                                    <param id="0" name="Comparison">4</param>
-                                    <param id="1" name="Y co-ordinate">Player.ImagePointY(5)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="8Direction" id="7" name="Simulate control" sid="606889296580173" type="Enemy2">
-                                    <param id="0" name="Control">2</param>
-                                </action>
-                            </actions>
+                        <event-block sid="492351285440683">
+                            <conditions />
+                            <actions />
+                            <sub-events>
+                                <event-block sid="270449049552882">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="432015727268841" type="Enemy2">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Player.ImagePointX(Enemy2.Target)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="292684052182704" type="Enemy2">
+                                            <param id="0" name="Control">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="182578469814355">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="888571448181628" type="Enemy2">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">Player.ImagePointX(Enemy2.Target)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="242275939176864" type="Enemy2">
+                                            <param id="0" name="Control">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="833198318745044">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="165037575319239" type="Enemy2">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="Y co-ordinate">Player.ImagePointY(Enemy2.Target)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="468260669673441" type="Enemy2">
+                                            <param id="0" name="Control">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="698396372123874">
+                                    <conditions>
+                                        <condition id="-2" name="Compare Y" sid="553440316549582" type="Enemy2">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="Y co-ordinate">Player.ImagePointY(Enemy2.Target)</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="8Direction" id="7" name="Simulate control" sid="606889296580173" type="Enemy2">
+                                            <param id="0" name="Control">2</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -485,7 +516,7 @@
                         <condition id="-8" name="Compare two values" sid="278887176073203" type="System">
                             <param id="0" name="First value">distance(Enemy2.X , Enemy2.Y , Player.X , Player.Y)</param>
                             <param id="1" name="Comparison">2</param>
-                            <param id="2" name="Second value">500</param>
+                            <param id="2" name="Second value">750</param>
                         </condition>
                     </conditions>
                     <actions />
