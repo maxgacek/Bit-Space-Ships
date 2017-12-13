@@ -27,6 +27,8 @@
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="DragnDrop" version="1">Drag &amp; Drop</behavior>
         <behavior author="Scirra" id="EightDir" version="1">8 Direction</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Pathfinding" version="1">Pathfinding</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
         <behavior author="Scirra" id="destroy" version="1">Destroy outside layout</behavior>
@@ -651,14 +653,47 @@
         </object-type>
         <object-type name="Enemy2" sid="318645608176540">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="Hp" sid="634773420223115" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="8Direction" sid="117749927453326">
                     <behavior id="EightDir" />
+                </behavior-type>
+                <behavior-type name="Pathfinding" sid="547515142001597">
+                    <behavior id="Pathfinding" />
+                </behavior-type>
+                <behavior-type name="LineOfSight" sid="124140542918872">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="Solid" sid="636330220532679">
+                    <behavior id="solid" />
                 </behavior-type>
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="702529885602640" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="EnemyBullet" sid="267931314968429">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="633991352219897">
+                    <behavior id="Bullet" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="358860555045013" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Radar_Enemy2" sid="727409168638326">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="193317517558457" speed="5">
+                    <frame duration="1" hotspotX="0.555556" hotspotY="0.555556" original-source="C:\Users\Max\Desktop\Game Prototype\graphics\IconEnemy1.png" />
                 </animation>
             </animation-folder>
         </object-type>

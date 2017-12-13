@@ -1,2 +1,12 @@
 [1213/201638.036:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
 [1213/202308.839:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/203745.998:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/204747.648:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/205340.442:ERROR:http_transport_win.cc(170)] WinHttpCrackUrl: Adres URL nie korzysta z rozpoznawanego protoko³u.  (0x2ee6)
+[1213/205340.806:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/205423.133:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/205545.242:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/205614.421:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/205839.368:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/205928.784:WARNING:chrome_main_delegate.cc(586)] final extension: .zip
+[1213/210313.620:WARNING:chrome_main_delegate.cc(586)] final extension: .zip

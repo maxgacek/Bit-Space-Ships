@@ -14,14 +14,14 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layout order="7">Intro</layout>
         <layout active="1" order="11">Game</layout>
         <event-sheet order="0">Controls_Scripts</event-sheet>
-        <event-sheet order="1">Enemy_Scripts</event-sheet>
-        <event-sheet order="2">Main</event-sheet>
+        <event-sheet order="10">Enemy_Scripts</event-sheet>
+        <event-sheet order="1">Main</event-sheet>
         <event-sheet order="3">Menu_Scirpts</event-sheet>
         <event-sheet order="4">Camera</event-sheet>
-        <event-sheet order="6">Main_Menu_Scripts</event-sheet>
+        <event-sheet order="2">Main_Menu_Scripts</event-sheet>
         <event-sheet order="8">Fade_Scripts</event-sheet>
-        <event-sheet order="9">Intro_Scripts</event-sheet>
-        <event-sheet order="10">SpaceStation</event-sheet>
+        <event-sheet order="6">Intro_Scripts</event-sheet>
+        <event-sheet order="9">SpaceStation</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -78,5 +78,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <folder expanded="1" path="animation-folder/Slider_bar/" />
         <folder expanded="1" path="animation-folder/Slider_Slide/" />
         <folder expanded="1" path="animation-folder/Enemy2/" />
+        <folder expanded="1" path="animation-folder/EnemyBullet/" />
+        <folder expanded="1" path="animation-folder/Radar_Enemy2/" />
     </folders-expanded>
 </c2uistate>

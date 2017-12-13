@@ -64,6 +64,31 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="181512839389493">
+            <conditions>
+                <condition id="2" name="Key is down" sid="398666119181596" type="Keyboard">
+                    <param id="0" name="Key">51 (3)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="551943335616847">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="342853625166107" type="System">
+                            <param id="0" name="Interval (seconds)">0.25</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="890649895632907" type="System">
+                            <param id="0" name="Object to create">Enemy2</param>
+                            <param id="1" name="Layer">&quot;Ships&quot;</param>
+                            <param id="2" name="X">random(0, LayoutWidth)</param>
+                            <param id="3" name="Y">random(0, LayoutHeight)</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="702292853823868">
             <conditions>
                 <condition id="-6" name="Every X seconds" sid="970427089897540" type="System">
@@ -182,9 +207,53 @@
         </event-block>
         <comment></comment>
         <variable constant="0" name="RadarScale" sid="710311278802983" static="0" type="number">0.03</variable>
+        <event-group description="" sid="727344599049136" title="Radar Scroll">
+            <sub-events>
+                <event-block sid="759433074355386">
+                    <conditions>
+                        <condition id="8" name="On mouse wheel" sid="718908319912284" type="Mouse">
+                            <param id="0" name="Direction">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="408067704775213" type="System">
+                            <param id="0" name="Variable">RadarScale</param>
+                            <param id="1" name="Value">RadarScale - 0.001</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="132629456335565">
+                    <conditions>
+                        <condition id="8" name="On mouse wheel" sid="370764378006345" type="Mouse">
+                            <param id="0" name="Direction">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="806364285484825" type="System">
+                            <param id="0" name="Variable">RadarScale</param>
+                            <param id="1" name="Value">RadarScale + 0.001</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="311026207277905">
+                    <conditions>
+                        <condition id="0" name="On click" sid="761049971163133" type="Mouse">
+                            <param id="0" name="Mouse button">1</param>
+                            <param id="1" name="Click type">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="592021248530962" type="System">
+                            <param id="0" name="Variable">RadarScale</param>
+                            <param id="1" name="Value">0.03</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-group description="" sid="737124428128970" title="Radar ">
             <sub-events>
-                <event-group description="" sid="929006448319019" title="Enemy1">
+                <event-group description="" sid="929006448319019" title="Enemy1 Radar">
                     <sub-events>
                         <event-block sid="783015415580717">
                             <conditions>
@@ -312,6 +381,73 @@
                             </conditions>
                             <actions>
                                 <action id="-15" name="Set visible" sid="939071175935664" type="Radar_Station">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="815703246925561" title="Enemy2 Radar">
+                    <sub-events>
+                        <event-block sid="501519411899669">
+                            <conditions>
+                                <condition id="-8" name="Compare two values" sid="531045993655920" type="System">
+                                    <param id="0" name="First value">Enemy2.Count</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Second value">Radar_Enemy2.Count</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="974140617127313" type="System">
+                                    <param id="0" name="Object to create">Radar_Enemy2</param>
+                                    <param id="1" name="Layer">&quot;UI&quot;</param>
+                                    <param id="2" name="X">0</param>
+                                    <param id="3" name="Y">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="435946349166520">
+                            <conditions>
+                                <condition id="-19" name="Pick all" sid="406092616146005" type="System">
+                                    <param id="0" name="Object">Enemy2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Set position" sid="444728642089490" type="Radar_Enemy2">
+                                    <param id="0" name="X">(Enemy2.X - Player.X) * RadarScale + Radar.X</param>
+                                    <param id="1" name="Y">(Enemy2.Y - Player.Y) * RadarScale + Radar.Y</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="587601752420025">
+                            <conditions>
+                                <condition id="-19" name="On destroyed" sid="402386354095299" type="Enemy2" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="507747689853378" type="Radar_Enemy2" />
+                            </actions>
+                        </event-block>
+                        <comment></comment>
+                        <event-block sid="207145523527057">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="946004101523289" type="Radar_Enemy2">
+                                    <param id="0" name="Object">Radar</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="998329744607146" type="Radar_Enemy2">
+                                    <param id="0" name="Visibility">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="970688206477723">
+                            <conditions>
+                                <condition id="1" inverted="1" name="Is overlapping another object" sid="253308698176426" type="Radar_Enemy2">
+                                    <param id="0" name="Object">Radar</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="702700499943006" type="Radar_Enemy2">
                                     <param id="0" name="Visibility">0</param>
                                 </action>
                             </actions>
